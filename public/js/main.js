@@ -8,7 +8,7 @@ const deletePostForm = document.querySelector("#delete-post-form");
 // Fetch all posts
 async function fetchPosts() {
   try {
-    const res = await fetch("http://localhost:3579/api/posts");
+    const res = await fetch("http://localhost:7900/api/posts");
     if (!res.ok) throw new Error("Failed to fetch posts!");
 
     const posts = await res.json();
@@ -39,7 +39,7 @@ async function fetchSinglePost(e) {
   const id = formData.get("post-id");
 
   try {
-    const res = await fetch(`http://localhost:3579/api/posts/${id}`);
+    const res = await fetch(`http://localhost:7900/api/posts/${id}`);
     if (!res.ok) throw new Error(`Post with ID ${id} not found!`);
 
     const post = await res.json();
@@ -56,13 +56,13 @@ async function addPost(e) {
   const title = formData.get("title");
 
   try {
-    const res = await fetch("http://localhost:3579/api/posts");
+    const res = await fetch("http://localhost:7900/api/posts");
     const posts = await res.json();
 
     // Calculate new ID
     const newId = posts.length > 0 ? Math.max(...posts.map((p) => p.id)) + 1 : 1;
 
-    const addRes = await fetch("http://localhost:3579/api/posts", {
+    const addRes = await fetch("http://localhost:7900/api/posts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id: newId, title }),
@@ -85,7 +85,7 @@ async function updatePost(e) {
   const newTitle = formData.get("new-title");
 
   try {
-    const res = await fetch(`http://localhost:3579/api/posts/${id}`, {
+    const res = await fetch(`http://localhost:7900/api/posts/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title: newTitle }),
@@ -107,7 +107,7 @@ async function deletePost(e) {
   const id = formData.get("post-id");
 
   try {
-    const res = await fetch(`http://localhost:3579/api/posts/${id}`, {
+    const res = await fetch(`http://localhost:7900/api/posts/${id}`, {
       method: "DELETE",
     });
 

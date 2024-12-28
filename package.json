@@ -17,5 +17,13 @@
   "dependencies": {
     "colors": "^1.4.0",
     "cors": "^2.8.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PBCZMMUS/Express_Crash.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PBCZMMUS/Express_Crash/issues"
+  },
+  "homepage": "https://github.com/PBCZMMUS/Express_Crash#readme"
 }
